@@ -27,7 +27,7 @@ function Navbar() {
       className={cn(
         "fixed w-full z-40 transition-all duration-300",
         isScrolled ? "py-3 bg-background shadow-xs" : "py-5",
-        "md:bg-transparent bg-background"
+        "md:bg-background bg-background"
       )}
     >
       <div className="container flex item-center justify-between">
