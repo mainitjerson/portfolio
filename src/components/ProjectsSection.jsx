@@ -1,5 +1,6 @@
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import RevealOnScroll from "./RevealOnScroll";
+
 const projects = [
   {
     id: 1,
@@ -32,31 +33,34 @@ const projects = [
 
 function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 px-24 relative">
+    <section
+      id="projects"
+      className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 relative"
+    >
       <RevealOnScroll>
         <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl mb:text-4xl font-bold text-center mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 sm:mb-4">
             Featured <span className="text-primary">Project</span>
           </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
             Here are some of the projects I've worked on.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {projects.map((project, key) => (
               <div
                 key={key}
                 project={project}
                 className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
               >
-                <div className="h-48 overflow-hidden">
+                <div className="h-40 sm:h-48 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
-                <div className="p-6">
-                  <div className="flex flex-wrap gap-2 mb-4">
+                <div className="p-4 sm:p-6">
+                  <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                     {project.tags.map((tag, key) => (
                       <span
                         key={key}
@@ -67,10 +71,10 @@ function ProjectsSection() {
                     ))}
                   </div>
 
-                  <h3 className="text-lg font-semibold mb-1">
+                  <h3 className="text-base sm:text-lg font-semibold mb-1">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
+                  <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4">
                     {project.description}
                   </p>
                   <div className="flex justify-between items-center">
@@ -78,16 +82,20 @@ function ProjectsSection() {
                       <a
                         href={project.demoUrl}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="text-foreground/80 hover:text-primary transition-all duration-300"
+                        aria-label={`View ${project.title} demo`}
                       >
-                        <ExternalLink size={20} />
+                        <ExternalLink size={18} className="sm:w-5 sm:h-5" />
                       </a>
                       <a
                         href={project.githubUrl}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="text-foreground/80 hover:text-primary transition-all duration-300"
+                        aria-label={`View ${project.title} source code`}
                       >
-                        <Github size={20} />
+                        <Github size={18} className="sm:w-5 sm:h-5" />
                       </a>
                     </div>
                   </div>
@@ -95,14 +103,15 @@ function ProjectsSection() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <a
               href="https://github.com/mainitjerson"
-              className="cosmic-button w-fit flex items-center mx-auto gap-2"
+              className="cosmic-button w-full sm:w-fit flex items-center justify-center mx-auto gap-2 text-sm sm:text-base"
               target="_blank"
+              rel="noopener noreferrer"
             >
               Check my GitHub
-              <ArrowRight />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
           </div>
         </div>

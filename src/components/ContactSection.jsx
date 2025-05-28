@@ -36,8 +36,8 @@ function ContactSection() {
       );
 
       console.log(formData.email);
-
       console.log("Email sent successfully:", result.text);
+
       setFormData({
         name: "",
         email: "",
@@ -61,16 +61,26 @@ function ContactSection() {
 
   return (
     <ToastProvider>
-      <section id="contact" className="py-24 px-24 relative bg-secondary/30">
+      <section
+        id="contact"
+        className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 relative bg-secondary/30"
+      >
         <RevealOnScroll>
-          <div className="container mx-auto max-w-5xl">
-            <h2 className="text-3xl mb:text-4xl font-bold text-center mb-4">
+          <div className="container mx-auto max-w-2xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 sm:mb-4">
               Get In<span className="text-primary"> Touch</span>
             </h2>
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+            <p className="text-center text-muted-foreground mb-8 sm:mb-12 text-sm sm:text-base">
+              Feel free to reach out to me for any questions or opportunities.
+            </p>
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="space-y-4 sm:space-y-6"
+            >
               <div className="relative">
                 <input
-                  className="w-full bg-white/10 border border-black/10 rounded px-4 py-3 text-primary transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                  className="w-full bg-white/10 border border-black/10 rounded-lg px-4 py-2.5 sm:py-3 text-sm sm:text-base text-primary transition focus:outline-none focus:border-primary focus:bg-primary/5"
                   type="text"
                   name="from_name"
                   id="name"
@@ -85,7 +95,7 @@ function ContactSection() {
 
               <div className="relative">
                 <input
-                  className="w-full bg-white/10 border border-black/10 rounded px-4 py-3 text-primary transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                  className="w-full bg-white/10 border border-black/10 rounded-lg px-4 py-2.5 sm:py-3 text-sm sm:text-base text-primary transition focus:outline-none focus:border-primary focus:bg-primary/5"
                   type="email"
                   name="email"
                   id="email"
@@ -100,7 +110,7 @@ function ContactSection() {
 
               <div className="relative">
                 <textarea
-                  className="w-full bg-white/10 border border-black/10 rounded px-4 py-3 text-primary transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
+                  className="w-full bg-white/10 border border-black/10 rounded-lg px-4 py-2.5 sm:py-3 text-sm sm:text-base text-primary transition focus:outline-none focus:border-primary focus:bg-primary/5 resize-none"
                   name="message"
                   id="message"
                   rows="4"
@@ -114,7 +124,7 @@ function ContactSection() {
               </div>
               <button
                 type="submit"
-                className="w-full px-6 py-3 rounded-lg overflow-hidden bg-primary text-white hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
+                className="w-full px-6 py-2.5 sm:py-3 rounded-lg overflow-hidden bg-primary text-white hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 text-sm sm:text-base font-medium"
               >
                 Send Message
               </button>

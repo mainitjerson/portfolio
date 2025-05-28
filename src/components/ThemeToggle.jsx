@@ -4,13 +4,18 @@ import { cn } from "@/lib/utils";
 
 function ThemeToggle() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Ensure this runs only on the client
     if (typeof window !== "undefined") {
       return localStorage.getItem("theme") === "dark";
     }
-    return false;
+    return false; // Default to false or handle server-side rendering appropriately
   });
 
   useEffect(() => {
+    // Ensure this runs only on the client
+    if (typeof window === "undefined") {
+      return;
+    }
     const root = document.documentElement;
     if (isDarkMode) {
       root.classList.add("dark");
@@ -29,11 +34,12 @@ function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className={cn(
-        "fixed max-sm:hidden top-3 right-3 p-2 rounded-full",
+        "p-2 rounded-full", // REMOVED: "fixed max-sm:hidden top-3 right-3 z-50"
+        // Consider if active:bg-transparent is desired if the button isn't on a transparent bg itself
         "active:bg-transparent dark:active:bg-transparent",
         "transition-colors duration-300",
-        "focus:outline-hidden",
-        "z-50"
+        // Improved focus styling for accessibility:
+        "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
       )}
       aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
     >
